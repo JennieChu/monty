@@ -3,9 +3,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-/* failures.c */
-void check_argc(int argc);
-
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -35,4 +32,14 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+/* failures.c */
+void check_argc(int argc);
+
+/* stack_funcs.c */
+int add_to_stack(stack_t **head, int n);
+void free_stack(stack_t *head);
+int delete_stack_head(stack_t **head);
+int delete_stack_end(stack_t **head);
+void print_stack(stack_t **head);
 #endif
