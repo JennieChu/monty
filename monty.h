@@ -1,5 +1,10 @@
 #ifndef MONTY
 #define MONTY
+#include <stdlib.h>
+#include <stdio.h>
+
+/* failures.c */
+void check_argc(int argc);
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
