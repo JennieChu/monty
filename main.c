@@ -1,5 +1,6 @@
 #include "monty.h"
 
+int value;
 /**
  * main - Interpreter of the Monty Language
  * @argc: argument count
@@ -11,19 +12,16 @@ int main(int argc, char *argv[])
 {
 	char *path;
 	char *tok_line[2];
-	int value;
+
 /*	stack_t *head; */
 
 	check_argc(argc);
 /*	head = NULL; */
 	path = argv[1];
-	tok_line[0] = "push";
-	tok_line[1] = "2";
-	if (strcmp(tok_line[0],"push") == 0)
-	{
-		/* check if tok_line[1] is digit */
-		value = atoi(tok_line[1]);
-	}
+	tok_line[0] = "push\0";
+	tok_line[1] = "2\0";
+
+	check_if_push(tok_line);
 	printf("%d\n", value);
 	printf("%s\n", path);
 /*	free_stack(&head); */
