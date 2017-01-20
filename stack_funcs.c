@@ -78,7 +78,7 @@ int delete_stack_end(stack_t **head)
 	if (*head == NULL)
 		return (-1);
 	temp = *head;
-	while (temp != NULL)
+	while (temp->next != NULL)
 		temp = temp->next;
 	temp->prev->next = NULL;
 	free(temp);

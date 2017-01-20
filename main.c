@@ -10,10 +10,10 @@
 int main(int argc, char *argv[])
 {
 	char *path;
-	stack_t *head;
+/*	stack_t *head; */
 
 	check_argc(argc);
-	head = NULL;
+/*	head = NULL; */
 	path = argv[1];
 	printf("%s\n", path);
 	return (1);
