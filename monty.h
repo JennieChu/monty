@@ -2,6 +2,7 @@
 #define MONTY
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -33,6 +34,8 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+extern int value;
+
 /* failures.c */
 void check_argc(int argc);
 
@@ -42,4 +45,7 @@ void free_stack(stack_t *head);
 int delete_stack_head(stack_t **head);
 int delete_stack_end(stack_t **head);
 void print_stack(stack_t **head);
+
+/* get_opcode_func.c */
+void (*get_opcode_func(char *s))(stack_t **stack, unsigned int ln);
 #endif
