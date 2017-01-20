@@ -16,5 +16,6 @@ int main(int argc, char *argv[])
 /*	head = NULL; */
 	path = argv[1];
 	printf("%s\n", path);
+/*	free_stack(&head); */
 	return (1);
 }
