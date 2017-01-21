@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
 	fptr = get_opcode_func(tok_line[0]);
 	(*fptr)(&head, 3);
 
-	tok_line[0] = "add\0";
+	tok_line[0] = "swap\0";
 	check_if_push(tok_line);
 	fptr = get_opcode_func(tok_line[0]);
 	(*fptr)(&head, 3);
