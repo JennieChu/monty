@@ -2,9 +2,15 @@
 #define MONTY
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 /* failures.c */
 void check_argc(int argc);
+
+/* string_helper.c */
+void tokenize_line(char *s, char *tokens[]);
+void clear_strings(char *tokens[]);
+int check_empty(const char *s);
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
