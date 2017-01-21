@@ -39,6 +39,7 @@ extern int value;
 
 /* failures.c */
 void check_argc(int argc);
+void check_valid_file(char *filename);
 
 /* stack_funcs.c */
 int add_to_stack(stack_t **head, int n);

@@ -16,13 +16,11 @@ int main(int argc, char *argv[])
 	stack_t *head;
 	size_t len;
 	ssize_t read;
-	int i;
 
 	check_argc(argc);
-	head = NULL;
 	path = argv[1];
+	head = NULL;
 	line = NULL;
-	len = 0;
 
 	fp = fopen(path, "r");
 	if (fp == NULL)
@@ -30,6 +28,7 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", path);
 		exit(EXIT_FAILURE);
 	}
+	check_valid_file(path);
 
 	while ((read = getline(&line, &len, fp)) != -1)
 	{
@@ -37,11 +36,6 @@ int main(int argc, char *argv[])
 			continue;
 
 		tokenize_line(line, tok_line);
-
-		/* tok_line[0] is the command */
-		/* tok_line[1] is optional parameters */
-/*		printf("tok_line[0]: %s\n", tok_line[0]);
-		printf("tok_line[1]: %s\n", tok_line[1]);*/
 
 		check_if_push(tok_line);
 		fptr = get_opcode_func(tok_line[0]);
