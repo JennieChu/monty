@@ -25,8 +25,29 @@ int main(int argc, char *argv[])
 	fptr = get_opcode_func(tok_line[0]);
 	(*fptr)(&head, 3);
 
+	tok_line[0] = "push\0";
+	tok_line[1] = "2\0";
+	check_if_push(tok_line);
+	fptr = get_opcode_func(tok_line[0]);
+	(*fptr)(&head, 3);
+
+	tok_line[0] = "push\0";
+	tok_line[1] = "3\0";
+	check_if_push(tok_line);
+	fptr = get_opcode_func(tok_line[0]);
+	(*fptr)(&head, 3);
+
 	tok_line[0] = "pall\0";
 	check_if_push(tok_line);
+	fptr = get_opcode_func(tok_line[0]);
+	(*fptr)(&head, 3);
+
+	tok_line[0] = "add\0";
+	check_if_push(tok_line);
+	fptr = get_opcode_func(tok_line[0]);
+	(*fptr)(&head, 3);
+
+	tok_line[0] = "pall\0";
 	fptr = get_opcode_func(tok_line[0]);
 	(*fptr)(&head, 3);
 

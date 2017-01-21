@@ -57,5 +57,6 @@ int check_if_push(char **tok_line);
 void stk_push(stack_t **stack, unsigned int ln);
 void stk_pall(stack_t **stack, unsigned int ln);
 void stk_pop(stack_t **stack, unsigned int ln);
+void stk_add(stack_t **stack, unsigned int ln);
 
 #endif
