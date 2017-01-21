@@ -53,3 +53,30 @@ void stk_pop(stack_t **stack, unsigned int ln)
 		exit(EXIT_FAILURE);
 	}
 }
+
+/**
+ * stk_add - adds the top two elements of the stack
+ * @stack: head to the stack
+ * @ln: line number where the opcode is located
+ */
+void stk_add(stack_t **stack, unsigned int ln)
+{
+	int result;
+	stack_t *head;
+
+	head = *stack;
+	if (head->next == NULL)
+	{
+		printf("L<%d>: can't add, stack too short\n", ln);
+		exit(EXIT_FAILURE);
+	}
+
+	(head->next)->n += head->n;
+
+	result = delete_stack_head(stack);
+	if (result != 1)
+	{
+		printf("L<%d>: can't add, error occurred\n", ln);
+		exit(EXIT_FAILURE);
+	}
+}

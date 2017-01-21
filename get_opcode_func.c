@@ -14,11 +14,13 @@ void (*get_opcode_func(char *s))(stack_t **stack, unsigned int ln)
 		{"pall", stk_pall},
 		{"push", stk_push},
 		{"pop", stk_pop},
+		{"add", stk_add},
+		{"swap", stk_swap},
 		{NULL, NULL}
 	};
 
 	i = 0;
-	while (i < 4)
+	while (i < 6)
 	{
 		if (strcmp(s, (stk[i]).opcode) == 0)
 		{

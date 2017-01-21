@@ -54,10 +54,14 @@ void (*get_opcode_func(char *s))(stack_t **stack, unsigned int ln);
 int check_if_number(char *str);
 int check_if_push(char **tok_line);
 
-/* push_func.c */
+/* opcode_func.c */
 void stk_push(stack_t **stack, unsigned int ln);
 void stk_pall(stack_t **stack, unsigned int ln);
 void stk_pop(stack_t **stack, unsigned int ln);
+void stk_add(stack_t **stack, unsigned int ln);
+
+/* opcode_func2.c */
+void stk_swap(stack_t **stack, unsigned int ln);
 
 /* string_helper.c */
 void tokenize_line(char *s, char *tokens[]);
