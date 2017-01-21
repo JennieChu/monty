@@ -15,7 +15,7 @@ void check_argc(int argc)
 }
 
 /**
- * check_valid_file - Check whether file given is valid
+ * check_valid_file - Check if file given is valid
  * @filename: path to file
  */
 
@@ -27,6 +27,20 @@ void check_valid_file(char *filename)
 	if (!ext || strcmp(".txt", ext) != 0)
 	{
 		printf("Error: Can't open file %s\n", filename);
+		exit(EXIT_FAILURE);
+	}
+}
+
+/**
+ * check_file_stream - Check if file stream is valid
+ * @fp: file stream
+ */
+
+void check_file_stream(FILE *fp, char *filename)
+{
+	if (fp == NULL)
+	{
+		fprintf(stderr, "Error: Can't open file %s\n", filename);
 		exit(EXIT_FAILURE);
 	}
 }
