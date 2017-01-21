@@ -1,5 +1,6 @@
 #include "monty.h"
 
+int value;
 /**
  * main - Interpreter of the Monty Language
  * @argc: argument count
@@ -9,15 +10,17 @@
 
 int main(int argc, char *argv[])
 {
-	char *path, *line, *tokens[2];
+	char *path, *line, *tok_line[2];
 	FILE *fp;
-	size_t len, i, j;
+	void (*fptr)(stack_t **stack, unsigned int ln);
+	stack_t *head;
+	size_t len;
 	ssize_t read;
+	int i;
 
 	check_argc(argc);
+	head = NULL;
 	path = argv[1];
-	printf("%s\n", path);
-
 	line = NULL;
 	len = 0;
 
@@ -33,15 +36,23 @@ int main(int argc, char *argv[])
 		if (check_empty(line))
 			continue;
 
-		tokenize_line(line, tokens);
+		tokenize_line(line, tok_line);
 
-		for (j = 0; tokens[j]; j++)
-			printf("token> %s\n", tokens[j]);
+		/* tok_line[0] is the command */
+		/* tok_line[1] is optional parameters */
+/*		printf("tok_line[0]: %s\n", tok_line[0]);
+		printf("tok_line[1]: %s\n", tok_line[1]);*/
 
-		clear_strings(tokens);
+		check_if_push(tok_line);
+		fptr = get_opcode_func(tok_line[0]);
+		(*fptr)(&head, 6);
+
+		clear_strings(tok_line);
 	}
-	free(line);
 
+	free(line);
 	fclose(fp);
+	free_stack(head);
+
 	return (1);
 }
