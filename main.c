@@ -14,23 +14,20 @@ int main(int argc, char *argv[])
 	FILE *fp;
 	void (*fptr)(stack_t **stack, unsigned int ln);
 	stack_t *head;
-	size_t len;
+	size_t len, lineno;
 	ssize_t read;
 
-	check_argc(argc);
-	path = argv[1];
 	head = NULL;
 	line = NULL;
-
-	fp = fopen(path, "r");
-	if (fp == NULL)
-	{
-		fprintf(stderr, "Error: Can't open file %s\n", path);
-		exit(EXIT_FAILURE);
-	}
+	check_argc(argc);
+	path = argv[1];
 	check_valid_file(path);
 
-	while ((read = getline(&line, &len, fp)) != -1)
+	fp = fopen(path, "r");
+	check_file_stream(fp, path);
+
+
+	for (lineno = 1; (read = getline(&line, &len, fp)) != -1; lineno++)
 	{
 		if (check_empty(line))
 			continue;
@@ -39,7 +36,7 @@ int main(int argc, char *argv[])
 
 		check_if_push(tok_line);
 		fptr = get_opcode_func(tok_line[0]);
-		(*fptr)(&head, 6);
+		(*fptr)(&head, lineno);
 
 		clear_strings(tok_line);
 	}
