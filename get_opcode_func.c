@@ -8,23 +8,23 @@
 
 void (*get_opcode_func(char *s))(stack_t **stack, unsigned int ln)
 {
-/**
- *	int i;
- *	instruction_t stk[] = {
- *		{"push", stk_push},
- *		{"pall", stk_pall},
- *		{NULL, NULL}
- *	};
- *
- *	i = 0;
- *	while (i < 3)
- *	{
- *		if (*s == *(stk[i]).opcode)
- *			return (*(stk[i]).f);
- *	i++;
- *	}
- *	return (NULL);
- */
-	printf("%s\n", s);
+
+	int i;
+	instruction_t stk[] = {
+		{"pall", stk_pall},
+		{"push", stk_push},
+		{"pop", stk_pop},
+		{NULL, NULL}
+	};
+
+	i = 0;
+	while (i < 4)
+	{
+		if (strcmp(s, (stk[i]).opcode) == 0)
+		{
+			return (*(stk[i]).f);
+		}
+		i++;
+	}
 	return (NULL);
 }

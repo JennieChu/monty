@@ -60,6 +60,12 @@ int delete_stack_head(stack_t **head)
 	if (*head == NULL)
 		return (-1);
 	temp = (*head);
+	if (temp->next == NULL)
+	{
+		free(temp);
+		(*head) = NULL;
+		return (1);
+	}
 	(*head) = (*head)->next;
 	(*head)->prev = NULL;
 	free(temp);
@@ -88,16 +94,20 @@ int delete_stack_end(stack_t **head)
 /**
  * print_stack - prints the stack
  * @head: head of the stack
+ * Return: 1 if success and 0 if not
  */
 
-void print_stack(stack_t **head)
+int print_stack(stack_t **head)
 {
 	stack_t *temp;
 
 	temp = (*head);
+	if (temp == NULL)
+		return (-1);
 	while (temp != NULL)
 	{
 		printf("%d\n", temp->n);
 		temp = temp->next;
 	}
+	return (0);
 }
