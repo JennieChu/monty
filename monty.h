@@ -60,6 +60,7 @@ void stk_push(stack_t **stack, unsigned int ln);
 void stk_pall(stack_t **stack, unsigned int ln);
 void stk_pop(stack_t **stack, unsigned int ln);
 void stk_add(stack_t **stack, unsigned int ln);
+void stk_pint(stack_t **stack, unsigned int ln);
 
 /* opcode_func2.c */
 void stk_swap(stack_t **stack, unsigned int ln);
