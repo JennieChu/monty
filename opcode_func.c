@@ -62,24 +62,23 @@ void stk_pop(stack_t **stack, unsigned int ln)
 
 void stk_add(stack_t **stack, unsigned int ln)
 {
-	int result;
-	stack_t *head;
+	stack_t *temp;
+	stack_t *temp2;
 
-	head = *stack;
-	if (head->next == NULL)
+	temp = (*stack);
+	temp2 = temp->next;
+	if (temp->next == NULL)
 	{
 		printf("L<%d>: can't add, stack too short\n", ln);
 		exit(EXIT_FAILURE);
 	}
-
-	(head->next)->n += head->n;
-
-	result = delete_stack_head(stack);
-	if (result != 1)
-	{
-		printf("L<%d>: can't add, error occurred\n", ln);
-		exit(EXIT_FAILURE);
-	}
+	temp->n = temp->next->n + temp->n;
+	temp->next = temp2->next;
+	if (temp2->next != NULL)
+		temp2->next->prev = temp;
+	else
+		temp->next = NULL;
+	free(temp2);
 }
 
 /**
