@@ -49,15 +49,15 @@ void stk_pop(stack_t **stack, unsigned int ln)
 	result = delete_stack_head(stack);
 	if (result != 1)
 	{
-		printf("L<%d>: usage: pop\n", ln);
+		printf("L<%d>: can't pop an empty stack\n", ln);
 		exit(EXIT_FAILURE);
 	}
 }
 
 /**
- * stk_add - adds the top two elements together
- * @stack: the ehad of the stack
- * @ln: line number
+ * stk_add - adds the top two elements of the stack
+ * @stack: head to the stack
+ * @ln: line number where the opcode is located
  */
 
 void stk_add(stack_t **stack, unsigned int ln)
@@ -79,5 +79,24 @@ void stk_add(stack_t **stack, unsigned int ln)
 	else
 		temp->next = NULL;
 	free(temp2);
+}
 
+/**
+ * stk_pint - print value at top of stack followed by new line
+ * @stack: head to the stack
+ * @ln: line number where the opcode is located
+ */
+
+void stk_pint(stack_t **stack, unsigned int ln)
+{
+	stack_t *head;
+
+	head = *stack;
+	if (head == NULL)
+	{
+		printf("L<%d>: can't pint, stack empty\n", ln);
+		exit(EXIT_FAILURE);
+	}
+
+	printf("%d\n", head->n);
 }

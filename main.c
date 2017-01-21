@@ -10,53 +10,40 @@ int value;
 
 int main(int argc, char *argv[])
 {
-	char *path;
-	char *tok_line[2];
+	char *path, *line, *tok_line[2];
+	FILE *fp;
 	void (*fptr)(stack_t **stack, unsigned int ln);
 	stack_t *head;
+	size_t len, lineno;
+	ssize_t read;
 
-	check_argc(argc);
 	head = NULL;
+	line = NULL;
+	check_argc(argc);
 	path = argv[1];
+	check_valid_file(path);
 
-	tok_line[0] = "push\0";
-	tok_line[1] = "1\0";
-	check_if_push(tok_line);
-	fptr = get_opcode_func(tok_line[0]);
-	(*fptr)(&head, 3);
+	fp = fopen(path, "r");
+	check_file_stream(fp, path);
 
-	tok_line[0] = "push\0";
-	tok_line[1] = "2\0";
-	check_if_push(tok_line);
-	fptr = get_opcode_func(tok_line[0]);
-	(*fptr)(&head, 3);
 
-	tok_line[0] = "push\0";
-	tok_line[1] = "3\0";
-	check_if_push(tok_line);
-	fptr = get_opcode_func(tok_line[0]);
-	(*fptr)(&head, 3);
+	for (lineno = 1; (read = getline(&line, &len, fp)) != -1; lineno++)
+	{
+		if (check_empty(line))
+			continue;
 
-	tok_line[0] = "pall\0";
-	check_if_push(tok_line);
-	fptr = get_opcode_func(tok_line[0]);
-	(*fptr)(&head, 3);
+		tokenize_line(line, tok_line);
 
-	tok_line[0] = "swap\0";
-	check_if_push(tok_line);
-	fptr = get_opcode_func(tok_line[0]);
-	(*fptr)(&head, 3);
+		check_if_push(tok_line);
+		fptr = get_opcode_func(tok_line[0]);
+		(*fptr)(&head, lineno);
 
-	tok_line[0] = "pall\0";
-	fptr = get_opcode_func(tok_line[0]);
-	(*fptr)(&head, 3);
+		clear_strings(tok_line);
+	}
 
-	tok_line[0] = "pop\0";
-	check_if_push(tok_line);
-	fptr = get_opcode_func(tok_line[0]);
-	(*fptr)(&head, 3);
-
-	printf("%s\n", path);
+	free(line);
+	fclose(fp);
 	free_stack(head);
+
 	return (1);
 }

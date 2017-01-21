@@ -12,9 +12,7 @@ int check_if_number(char *str)
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (isdigit(str[i]))
-			i++;
-		else
+		if (!isdigit(str[i]))
 			return (0);
 	}
 	return (1);
@@ -34,6 +32,7 @@ int check_if_push(char *tok_line[])
 			value = atoi(tok_line[1]);
 		else
 			printf("DEBUG: ERROR MSG\n");
+
 		return (1);
 	}
 	return (0);
