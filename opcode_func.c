@@ -49,7 +49,7 @@ void stk_pop(stack_t **stack, unsigned int ln)
 	result = delete_stack_head(stack);
 	if (result != 1)
 	{
-		printf("L<%d>: usage: pop\n", ln);
+		printf("L<%d>: can't pop an empty stack\n", ln);
 		exit(EXIT_FAILURE);
 	}
 }
