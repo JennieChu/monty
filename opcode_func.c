@@ -59,6 +59,7 @@ void stk_pop(stack_t **stack, unsigned int ln)
  * @stack: head to the stack
  * @ln: line number where the opcode is located
  */
+
 void stk_add(stack_t **stack, unsigned int ln)
 {
 	int result;
@@ -79,4 +80,24 @@ void stk_add(stack_t **stack, unsigned int ln)
 		printf("L<%d>: can't add, error occurred\n", ln);
 		exit(EXIT_FAILURE);
 	}
+}
+
+/**
+ * stk_pint - print value at top of stack followed by new line
+ * @stack: head to the stack
+ * @ln: line number where the opcode is located
+ */
+
+void stk_pint(stack_t **stack, unsigned int ln)
+{
+	stack_t *head;
+
+	head = *stack;
+	if (head == NULL)
+	{
+		printf("L<%d>: can't pint, stack empty\n", ln);
+		exit(EXIT_FAILURE);
+	}
+
+	printf("%d\n", head->n);
 }
