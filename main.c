@@ -1,6 +1,6 @@
 #include "monty.h"
 
-int value;
+int value[3] = {0, 0, 0};
 /**
  * main - Interpreter of the Monty Language
  * @argc: argument count
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 			continue;
 
 		tokenize_line(line, tok_line);
-
+		check_data_structure(tok_line[0]);
 		check_if_push(tok_line);
 		fptr = get_opcode_func(tok_line[0]);
 		(*fptr)(&head, lineno);

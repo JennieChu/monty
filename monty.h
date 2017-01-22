@@ -35,7 +35,7 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern int value;
+extern int value[];
 
 /* failures.c */
 void check_argc(int argc);
@@ -49,6 +49,9 @@ int delete_stack_head(stack_t **head);
 int delete_stack_end(stack_t **head);
 int print_stack(stack_t **head);
 
+/* stack_funcs2.c */
+int add_to_queue(stack_t **head, int n);
+
 /* get_opcode_func.c */
 void (*get_opcode_func(char *s))(stack_t **stack, unsigned int ln);
 
@@ -56,6 +59,7 @@ void (*get_opcode_func(char *s))(stack_t **stack, unsigned int ln);
 int check_if_number(char *str);
 int check_if_push(char **tok_line);
 int is_ascii(int c);
+void check_data_structure(char *opcode);
 
 /* opcode_func.c */
 void stk_push(stack_t **stack, unsigned int ln);
@@ -73,6 +77,8 @@ void stk_pstr(stack_t **stack, unsigned int ln);
 /* opcode_func3.c */
 void stk_rotl(stack_t **stack, unsigned int ln);
 void stk_rotr(stack_t **stack, unsigned int ln);
+void stk_stack(stack_t **stack, unsigned int ln);
+void stk_queue(stack_t **stack, unsigned int ln);
 
 /* string_helper.c */
 void tokenize_line(char *s, char *tokens[]);

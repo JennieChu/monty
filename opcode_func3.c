@@ -53,3 +53,28 @@ void stk_rotr(stack_t **stack, unsigned int ln)
 		(*stack) = temp2;
 	}
 }
+
+/**
+ * stk_stack - sets the format of the data to a stack
+ * @stack: head of the stack
+ * @ln: line number
+ */
+
+
+void stk_stack(stack_t **stack, unsigned int ln)
+{
+	(void) stack;
+	(void) ln;
+}
+
+/**
+ * stk_queue - sets teh format of the data to a queue
+ * @stack: head of the stack
+ * @ln: line number of the opcode
+ */
+
+void stk_queue(stack_t **stack, unsigned int ln)
+{
+	(void) stack;
+	(void) ln;
+}

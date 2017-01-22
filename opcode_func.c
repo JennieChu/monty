@@ -10,8 +10,11 @@ void stk_push(stack_t **stack, unsigned int ln)
 {
 	int result;
 
-	result = add_to_stack(stack, value);
-	if (result != 0)
+	if (value[1] == 0)
+		result = add_to_stack(stack, value[0]);
+	else
+		result = add_to_queue(stack, value[0]);
+	if (result < 0)
 	{
 		printf("L<%d>: usage: push integer\n", ln);
 		exit(EXIT_FAILURE);
@@ -46,7 +49,10 @@ void stk_pop(stack_t **stack, unsigned int ln)
 {
 	int result;
 
-	result = delete_stack_head(stack);
+	if (value[1] == 0 || value[2] == 0)
+		result = delete_stack_head(stack);
+	else
+		result = delete_stack_end(stack);
 	if (result != 1)
 	{
 		printf("L<%d>: can't pop an empty stack\n", ln);
