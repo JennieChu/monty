@@ -70,6 +70,10 @@ void stk_nop(stack_t **stack, unsigned int ln);
 void stk_pchar(stack_t **stack, unsigned int ln);
 void stk_pstr(stack_t **stack, unsigned int ln);
 
+/* opcode_func3.c */
+void stk_rotl(stack_t **stack, unsigned int ln);
+void stk_rotr(stack_t **stack, unsigned int ln);
+
 /* string_helper.c */
 void tokenize_line(char *s, char *tokens[]);
 void clear_strings(char *tokens[]);
