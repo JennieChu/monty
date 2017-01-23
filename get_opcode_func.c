@@ -24,11 +24,12 @@ void (*get_opcode_func(char *s))(stack_t **stack, unsigned int ln)
 		{"rotr", stk_rotr},
 		{"sub", stk_sub},
 		{"div", stk_div},
+		{"mul", stk_mul},
 		{NULL, NULL}
 	};
 
 	i = 0;
-	while (i < 14)
+	while (i < 15)
 	{
 		if (strcmp(s, (stk[i]).opcode) == 0)
 		{
