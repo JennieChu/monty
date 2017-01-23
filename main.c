@@ -35,7 +35,6 @@ int main(int argc, char *argv[])
 		status = tokenize_line(line, tok_line);
 		if (status == 0)
 			continue;
-		/* check_arg 2 validity */
 
 		check_if_push(tok_line, lineno);
 		fptr = get_opcode_func(tok_line[0]);
