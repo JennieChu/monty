@@ -76,6 +76,7 @@ void stk_rotr(stack_t **stack, unsigned int ln);
 
 /* opcode_func4.c */
 void stk_sub(stack_t **stack, unsigned int ln);
+void stk_div(stack_t **stack, unsigned int ln);
 
 /* string_helper.c */
 int tokenize_line(char *s, char *tokens[]);
