@@ -62,13 +62,14 @@ void stk_div(stack_t **stack, unsigned int ln)
  * @stack: head to the stack
  * @ln: line number where the opcode is located
  */
+
 void stk_mul(stack_t **stack, unsigned int ln)
 {
 	stack_t *temp, *temp2;
 
 	temp = (*stack);
 	temp2 = temp->next;
-	if (temp->next == NULL)
+	if (temp2 == NULL)
 	{
 		printf("L<%d>: can't mul, stack too short\n", ln);
 		exit(EXIT_FAILURE);
@@ -80,4 +81,31 @@ void stk_mul(stack_t **stack, unsigned int ln)
 	else
 		temp->next = NULL;
 	free(temp2);
+}
+
+/**
+ * stk_mod - divides second top element by top element and gets remainder
+ * @stack: head to the stack
+ * @ln: line number where the opcode is located
+ */
+
+void stk_mod(stack_t **stack, unsigned int ln)
+{
+	stack_t *temp, *temp2;
+
+	temp = (*stack);
+	temp2 = temp->next;
+	if (temp2 == NULL)
+	{
+		printf("L<%d>: can't mod, stack too short\n", ln);
+		exit(EXIT_FAILURE);
+	}
+	if (temp->n == 0)
+	{
+		printf("L<%d>: division by zero\n", ln);
+		exit(EXIT_FAILURE);
+	}
+	temp2->n = temp2->n % temp->n;
+	temp2->prev = NULL;
+	delete_stack_head(stack);
 }
