@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 			continue;
 		/* check_arg 2 validity */
 
-		check_if_push(tok_line);
+		check_if_push(tok_line, lineno);
 		fptr = get_opcode_func(tok_line[0]);
 		(*fptr)(&head, lineno);
 

@@ -24,14 +24,17 @@ int check_if_number(char *str)
  * Return: 1 if success and 0 if not push
  */
 
-int check_if_push(char *tok_line[])
+int check_if_push(char *tok_line[], int lineno)
 {
 	if (strcmp(tok_line[0], "push") == 0)
 	{
-		if (check_if_number(tok_line[1]))
+		if (tok_line[1][0] != '\0' && check_if_number(tok_line[1]))
 			value = atoi(tok_line[1]);
 		else
-			printf("DEBUG: ERROR MSG\n");
+		{
+			printf("L<%d>: usage: push integer\n", lineno);
+			exit(EXIT_FAILURE);
+		}
 
 		return (1);
 	}

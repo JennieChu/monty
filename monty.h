@@ -54,7 +54,7 @@ void (*get_opcode_func(char *s))(stack_t **stack, unsigned int ln);
 
 /* helper.c */
 int check_if_number(char *str);
-int check_if_push(char **tok_line);
+int check_if_push(char **tok_line, int lineno);
 int is_ascii(int c);
 
 /* opcode_func.c */
