@@ -17,13 +17,8 @@ void stk_sub(stack_t **stack, unsigned int ln)
 		printf("L<%d>: can't sub, stack too short\n", ln);
 		exit(EXIT_FAILURE);
 	}
-	temp->n = temp2->n - temp->n;
-	temp->next = temp2->next;
-	if (temp2->next != NULL)
-		temp2->next->prev = temp;
-	else
-		temp->next = NULL;
-	free(temp2);
+	temp2->n = temp2->n - temp->n;
+	delete_stack_head(stack);
 }
 
 /**
@@ -43,18 +38,13 @@ void stk_div(stack_t **stack, unsigned int ln)
 		printf("L<%d>: can't div, stack too short\n", ln);
 		exit(EXIT_FAILURE);
 	}
-	if (temp2->n == 0)
+	if (temp->n == 0)
 	{
 		printf("L<%d>: division by zero\n", ln);
 		exit(EXIT_FAILURE);
 	}
-	temp->n = (int)(temp2->n / temp->n);
-	temp->next = temp2->next;
-	if (temp2->next != NULL)
-		temp2->next->prev = temp;
-	else
-		temp->next = NULL;
-	free(temp2);
+	temp2->n = (int)(temp2->n / temp->n);
+	delete_stack_head(stack);
 }
 
 /**
@@ -74,13 +64,8 @@ void stk_mul(stack_t **stack, unsigned int ln)
 		printf("L<%d>: can't mul, stack too short\n", ln);
 		exit(EXIT_FAILURE);
 	}
-	temp->n = temp2->n * temp->n;
-	temp->next = temp2->next;
-	if (temp2->next != NULL)
-		temp2->next->prev = temp;
-	else
-		temp->next = NULL;
-	free(temp2);
+	temp2->n = temp2->n * temp->n;
+	delete_stack_head(stack);
 }
 
 /**
@@ -106,6 +91,5 @@ void stk_mod(stack_t **stack, unsigned int ln)
 		exit(EXIT_FAILURE);
 	}
 	temp2->n = temp2->n % temp->n;
-	temp2->prev = NULL;
 	delete_stack_head(stack);
 }
