@@ -9,7 +9,7 @@
 void (*get_opcode_func(char *s))(stack_t **stack, unsigned int ln)
 {
 
-	int i;
+	unsigned int i;
 	instruction_t stk[] = {
 		{"pall", stk_pall},
 		{"push", stk_push},
@@ -30,7 +30,7 @@ void (*get_opcode_func(char *s))(stack_t **stack, unsigned int ln)
 	};
 
 	i = 0;
-	while (i < (sizeof(s) / sizeof(s[0])))
+	while (i < 16)
 	{
 		if (strcmp(s, (stk[i]).opcode) == 0)
 		{
