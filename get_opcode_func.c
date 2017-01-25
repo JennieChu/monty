@@ -18,10 +18,14 @@ void (*get_opcode_func(char *s))(stack_t **stack, unsigned int ln)
 		{"swap", stk_swap},
 		{"pint", stk_pint},
 		{"nop", stk_nop},
+		{"pchar", stk_pchar},
+		{"pstr", stk_pstr},
+		{"rotl", stk_rotl},
+		{"rotr", stk_rotr},
 	};
 
 	i = 0;
-	while (i < 7)
+	while (i < 11)
 	{
 		if (strcmp(s, (stk[i]).opcode) == 0)
 		{
