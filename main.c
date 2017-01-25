@@ -1,6 +1,6 @@
 #include "monty.h"
 
-int value[3] = {0, 0, 0};
+int value[3] = {0, 0};
 /**
  * main - Interpreter of the Monty Language
  * @argc: argument count
