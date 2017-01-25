@@ -10,6 +10,9 @@ int check_if_number(char *str)
 {
 	int i;
 
+	if (str && *str == '-')
+		str++;
+
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		if (!isdigit(str[i]))
