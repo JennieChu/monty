@@ -38,8 +38,12 @@ int main(int argc, char *argv[])
 
 		check_if_push(tok_line, lineno);
 		fptr = get_opcode_func(tok_line[0]);
+		if (fptr == NULL)
+		{
+			printf("L<%ld>: unknown instruction <opcode>\n", lineno);
+			exit(EXIT_FAILURE);
+		}
 		(*fptr)(&head, lineno);
-
 		clear_strings(tok_line);
 	}
 
