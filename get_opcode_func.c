@@ -22,6 +22,7 @@ void (*get_opcode_func(char *s))(stack_t **stack, unsigned int ln)
 		{"pstr", stk_pstr},
 		{"rotl", stk_rotl},
 		{"rotr", stk_rotr},
+<<<<<<< HEAD
 		{"queue", stk_queue},
 		{"stack", stk_stack},
 		{NULL, NULL}
@@ -29,6 +30,12 @@ void (*get_opcode_func(char *s))(stack_t **stack, unsigned int ln)
 
 	i = 0;
 	while (i < 14)
+=======
+	};
+
+	i = 0;
+	while (i < 11)
+>>>>>>> develop
 	{
 		if (strcmp(s, (stk[i]).opcode) == 0)
 		{
