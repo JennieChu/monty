@@ -15,7 +15,7 @@ void stk_swap(stack_t **stack, unsigned int ln)
 	temp2 = temp->next;
 	if (temp2 == NULL)
 	{
-		printf("L<%d>: can't swap, stack too short\n", ln);
+		printf("L%d: can't swap, stack too short\n", ln);
 		exit(EXIT_FAILURE);
 	}
 	temp_value = temp->n;
@@ -48,13 +48,13 @@ void stk_pchar(stack_t **stack, unsigned int ln)
 	temp = (*stack);
 	if (temp == NULL)
 	{
-		printf("L<%d>: can't pchar, stack empty", ln);
+		printf("L%d: can't pchar, stack empty", ln);
 		exit(EXIT_FAILURE);
 	}
 	c = temp->n;
 	if (!(is_ascii(c)))
 	{
-		printf("L<%d>: can't pchar, value out of range", ln);
+		printf("L%d: can't pchar, value out of range", ln);
 		exit(EXIT_FAILURE);
 	}
 	putchar(c);
