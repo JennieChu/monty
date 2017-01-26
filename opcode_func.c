@@ -68,13 +68,13 @@ void stk_add(stack_t **stack, unsigned int ln)
 	stack_t *temp;
 	stack_t *temp2;
 
-	temp = (*stack);
-	temp2 = temp->next;
-	if (temp->next == NULL)
+	if ((*stack) == NULL || (*stack)->next == NULL)
 	{
 		printf("L%d: can't add, stack too short\n", ln);
 		exit(EXIT_FAILURE);
 	}
+	temp = (*stack);
+	temp2 = temp->next;
 	temp->n = temp->next->n + temp->n;
 	temp->next = temp2->next;
 	if (temp2->next != NULL)
