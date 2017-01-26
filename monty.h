@@ -57,7 +57,7 @@ void (*get_opcode_func(char *s))(stack_t **stack, unsigned int ln);
 
 /* helper.c */
 int check_if_number(char *str);
-int check_if_push(char **tok_line);
+int check_if_push(char **tok_line, int lineno);
 int is_ascii(int c);
 void check_data_structure(char *opcode);
 
@@ -80,10 +80,16 @@ void stk_rotr(stack_t **stack, unsigned int ln);
 void stk_stack(stack_t **stack, unsigned int ln);
 void stk_queue(stack_t **stack, unsigned int ln);
 
+/* opcode_func4.c */
+void stk_sub(stack_t **stack, unsigned int ln);
+void stk_div(stack_t **stack, unsigned int ln);
+void stk_mul(stack_t **stack, unsigned int ln);
+void stk_mod(stack_t **stack, unsigned int ln);
+
 /* string_helper.c */
-void tokenize_line(char *s, char *tokens[]);
+int tokenize_line(char *s, char *tokens[]);
 void clear_strings(char *tokens[]);
 int check_empty(const char *s);
-
+int check_if_comment(char **token);
 
 #endif

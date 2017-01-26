@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 	FILE *fp;
 	void (*fptr)(stack_t **stack, unsigned int ln);
 	stack_t *head;
-	size_t len, lineno;
+	size_t len, lineno, status;
 	ssize_t read;
 
 	head = NULL;
@@ -32,8 +32,11 @@ int main(int argc, char *argv[])
 		if (check_empty(line))
 			continue;
 
-		tokenize_line(line, tok_line);
-		check_if_push(tok_line);
+		status = tokenize_line(line, tok_line);
+		if (status == 0)
+			continue;
+
+		check_if_push(tok_line, lineno);
 		fptr = get_opcode_func(tok_line[0]);
 		if (fptr == NULL)
 		{
