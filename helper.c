@@ -32,7 +32,7 @@ int check_if_push(char *tok_line[], int lineno)
 	if (strcmp(tok_line[0], "push") == 0)
 	{
 		if (tok_line[1][0] != '\0' && check_if_number(tok_line[1]))
-			value = atoi(tok_line[1]);
+			value[0] = atoi(tok_line[1]);
 		else
 		{
 			printf("L<%d>: usage: push integer\n", lineno);
