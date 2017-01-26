@@ -24,7 +24,9 @@ void check_valid_file(char *filename)
 	char *ext;
 
 	ext = strrchr(filename, '.');
-	if (!ext || strcmp(".txt", ext) != 0)
+	if (ext == NULL)
+		return;
+	if (!(strcmp(".txt", ext) == 0 || strcmp(".m", ext) == 0))
 	{
 		printf("Error: Can't open file %s\n", filename);
 		exit(EXIT_FAILURE);
