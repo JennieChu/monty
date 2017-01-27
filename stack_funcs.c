@@ -4,7 +4,7 @@
  * add_to_stack - adds the node to the beginning of the stack
  * @head: head of the stack
  * @n: number value for the stack
- * Return: 1 if success and 0 if fail
+ * Return: 1 if success and -1 if fail
  */
 
 int add_to_stack(stack_t **head, int n)
@@ -27,7 +27,8 @@ int add_to_stack(stack_t **head, int n)
 		(*head)->prev = new_node;
 		*head = new_node;
 	}
-	return (0);
+	value[2] = 1;
+	return (1);
 }
 
 /**
@@ -75,6 +76,7 @@ int delete_stack_head(stack_t **head)
 /**
  * delete_stack_end - deletes the end of the stack
  * @head: head of the stack
+ * Return: 1 if success and -1 if failed
  */
 
 int delete_stack_end(stack_t **head)

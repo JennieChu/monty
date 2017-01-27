@@ -10,10 +10,13 @@ void stk_push(stack_t **stack, unsigned int ln)
 {
 	int result;
 
-	result = add_to_stack(stack, value);
-	if (result != 0)
+	if (value[1] == 0)
+		result = add_to_stack(stack, value[0]);
+	else
+		result = add_to_queue(stack, value[0]);
+	if (result < 0)
 	{
-		printf("L<%d>: usage: push integer\n", ln);
+		printf("L%d: usage: push integer\n", ln);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -49,7 +52,7 @@ void stk_pop(stack_t **stack, unsigned int ln)
 	result = delete_stack_head(stack);
 	if (result != 1)
 	{
-		printf("L<%d>: can't pop an empty stack\n", ln);
+		printf("L%d: can't pop an empty stack\n", ln);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -65,13 +68,13 @@ void stk_add(stack_t **stack, unsigned int ln)
 	stack_t *temp;
 	stack_t *temp2;
 
-	temp = (*stack);
-	temp2 = temp->next;
-	if (temp->next == NULL)
+	if ((*stack) == NULL || (*stack)->next == NULL)
 	{
-		printf("L<%d>: can't add, stack too short\n", ln);
+		printf("L%d: can't add, stack too short\n", ln);
 		exit(EXIT_FAILURE);
 	}
+	temp = (*stack);
+	temp2 = temp->next;
 	temp->n = temp->next->n + temp->n;
 	temp->next = temp2->next;
 	if (temp2->next != NULL)
@@ -94,7 +97,7 @@ void stk_pint(stack_t **stack, unsigned int ln)
 	head = *stack;
 	if (head == NULL)
 	{
-		printf("L<%d>: can't pint, stack empty\n", ln);
+		printf("L%d: can't pint, stack empty\n", ln);
 		exit(EXIT_FAILURE);
 	}
 
