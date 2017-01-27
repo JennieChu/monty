@@ -41,7 +41,7 @@ extern int value[];
 void check_argc(int argc);
 void check_valid_file(char *filename);
 void check_file_stream(FILE *fp, char *filename);
-void check_opcode(void (*opcode)(stack_t **stack, unsigned int ln), int lineno);
+void check_opcode(void (*opcode)(), int lineno, char *cmd);
 void check_fail(char *line, FILE *fp, stack_t *head);
 
 /* stack_funcs.c */
