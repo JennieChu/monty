@@ -27,7 +27,6 @@ int add_to_stack(stack_t **head, int n)
 		(*head)->prev = new_node;
 		*head = new_node;
 	}
-	value[2] = 1;
 	return (1);
 }
 
