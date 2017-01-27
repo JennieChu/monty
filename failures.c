@@ -59,6 +59,24 @@ void check_opcode(void (*opcode)(stack_t **stack, unsigned int ln), int lineno)
 	if (opcode == NULL)
 	{
 		printf("L%d: unknown instruction <opcode>\n", lineno);
+		value[2] = 1;
+		return;
+	}
+}
+
+/**
+ * check_fail - check if a fail has been raised. If so, free memory and exit
+ * 
+ * Return: return 1 if exit triggered, else 0 for false
+ */
+
+void check_fail(char *line, FILE *fp, stack_t *head)
+{
+	if (value[2] == 1)
+	{
+		free(line);
+		fclose(fp);
+		free_stack(head);
 		exit(EXIT_FAILURE);
 	}
 }

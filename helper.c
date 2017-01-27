@@ -37,7 +37,8 @@ int check_if_push(char *tok_line[], int lineno)
 		else
 		{
 			printf("L<%d>: usage: push integer\n", lineno);
-			exit(EXIT_FAILURE);
+			value[2] = 1;
+			return (0);
 		}
 
 		return (1);

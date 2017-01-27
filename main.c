@@ -1,6 +1,6 @@
 #include "monty.h"
 
-int value[3] = {0, 0};
+int value[3] = {0, 0, 0};
 /**
  * main - Interpreter of the Monty Language
  * @argc: argument count
@@ -33,15 +33,17 @@ int main(int argc, char *argv[])
 		if (status == 0)
 			continue;
 
-		check_if_push(tok_line, lineno);
+		check_if_push(tok_line, lineno);  /* this */
+		check_fail(line, fp, head);
 		check_data_structure(tok_line[0]);
 		fptr = get_opcode_func(tok_line[0]);
-		check_opcode(fptr, lineno);
+		check_opcode(fptr, lineno); /* this */
+		check_fail(line, fp, head);
 
-		(*fptr)(&head, lineno);
+		(*fptr)(&head, lineno);  /* this */
+		check_fail(line, fp, head);
 		clear_strings(tok_line);
 	}
-
 	free(line);
 	fclose(fp);
 	free_stack(head);
