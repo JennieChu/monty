@@ -66,8 +66,11 @@ void check_opcode(void (*opcode)(stack_t **stack, unsigned int ln), int lineno)
 
 /**
  * check_fail - check if a fail has been raised. If so, free memory and exit
- * 
+ * @line: buffer to free
+ * @fp: file stream to close
+ * @head: head of the stack
  * Return: return 1 if exit triggered, else 0 for false
+>>>>>>> 7d04db8af0fe92aea70a792ec4db590e91fc9516
  */
 
 void check_fail(char *line, FILE *fp, stack_t *head)
