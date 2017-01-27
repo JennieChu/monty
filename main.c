@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
 			continue;
 
 		check_if_push(tok_line, lineno);
+		check_data_structure(tok_line[0]);
 		fptr = get_opcode_func(tok_line[0]);
 		check_opcode(fptr, lineno);
 
