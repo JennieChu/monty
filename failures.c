@@ -36,6 +36,7 @@ void check_valid_file(char *filename)
 /**
  * check_file_stream - Check if file stream is valid
  * @fp: file stream
+ * @filename: name of file
  */
 
 void check_file_stream(FILE *fp, char *filename)

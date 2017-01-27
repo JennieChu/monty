@@ -3,6 +3,7 @@
 /**
  * tokenize_line - Tokenize command and any arguments
  * @s: line to parse
+ * @tokens: buffer to fill
  * Return: 1 if success, 0 if failed
  */
 

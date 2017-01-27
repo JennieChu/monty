@@ -25,13 +25,10 @@ int main(int argc, char *argv[])
 
 	fp = fopen(path, "r");
 	check_file_stream(fp, path);
-
-
 	for (lineno = 1; (read = getline(&line, &len, fp)) != -1; lineno++)
 	{
 		if (check_empty(line))
 			continue;
-
 		status = tokenize_line(line, tok_line);
 		if (status == 0)
 			continue;
@@ -40,7 +37,7 @@ int main(int argc, char *argv[])
 		fptr = get_opcode_func(tok_line[0]);
 		if (fptr == NULL)
 		{
-			printf("L%ld: unknown instruction <opcode>\n", lineno);
+			printf("L<%ld>: unknown instruction <opcode>\n", lineno);
 			exit(EXIT_FAILURE);
 		}
 		(*fptr)(&head, lineno);

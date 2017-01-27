@@ -75,7 +75,7 @@ void stk_mul(stack_t **stack, unsigned int ln)
 	}
 	temp = (*stack);
 	temp2 = temp->next;
-	temp->n = temp2->n * temp-> n;
+	temp->n = temp2->n * temp->n;
 	temp->next = temp2->next;
 	if (temp2->next != NULL)
 		temp2->next->prev = temp;
