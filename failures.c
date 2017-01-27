@@ -47,3 +47,18 @@ void check_file_stream(FILE *fp, char *filename)
 		exit(EXIT_FAILURE);
 	}
 }
+
+/**
+ * check_opcode - Check if opcode function pointer is NULL
+ * @opcode: opcode function pointer
+ * @lineno: line number
+ */
+
+void check_opcode(void (*opcode)(stack_t **stack, unsigned int ln), int lineno)
+{
+	if (opcode == NULL)
+	{
+		printf("L%d: unknown instruction <opcode>\n", lineno);
+		exit(EXIT_FAILURE);
+	}
+}
