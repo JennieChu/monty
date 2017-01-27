@@ -93,5 +93,4 @@ int tokenize_line(char *s, char *tokens[]);
 void clear_strings(char *tokens[]);
 int check_empty(const char *s);
 int check_if_comment(char **token);
-
 #endif
