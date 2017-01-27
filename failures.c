@@ -43,7 +43,7 @@ void check_file_stream(FILE *fp, char *filename)
 {
 	if (fp == NULL)
 	{
-		fprintf(stderr, "Error: Can't open file %s\n", filename);
+		printf("Error: Can't open file %s\n", filename);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -51,14 +51,15 @@ void check_file_stream(FILE *fp, char *filename)
 /**
  * check_opcode - Check if opcode function pointer is NULL
  * @opcode: opcode function pointer
- * @lineno: line number
+ * @l: line number
+ * @c: command given
  */
 
-void check_opcode(void (*opcode)(stack_t **stack, unsigned int ln), int lineno)
+void check_opcode(void (*opcode)(), int lineno, char *cmd)
 {
 	if (opcode == NULL)
 	{
-		printf("L%d: unknown instruction <opcode>\n", lineno);
+		printf("L%d: unknown instruction %s\n", lineno, cmd);
 		value[2] = 1;
 		return;
 	}
@@ -70,7 +71,6 @@ void check_opcode(void (*opcode)(stack_t **stack, unsigned int ln), int lineno)
  * @fp: file stream to close
  * @head: head of the stack
  * Return: return 1 if exit triggered, else 0 for false
->>>>>>> 7d04db8af0fe92aea70a792ec4db590e91fc9516
  */
 
 void check_fail(char *line, FILE *fp, stack_t *head)

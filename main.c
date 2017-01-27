@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 		check_fail(line, fp, head);
 		check_data_structure(tok_line[0]);
 		fptr = get_opcode_func(tok_line[0]);
-		check_opcode(fptr, lineno); /* this */
+		check_opcode(fptr, lineno, tok_line[0]); /* this */
 		check_fail(line, fp, head);
 
 		(*fptr)(&head, lineno);  /* this */
