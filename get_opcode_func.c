@@ -32,7 +32,7 @@ void (*get_opcode_func(char *s))(stack_t **stack, unsigned int ln)
 	};
 
 	i = 0;
-	while (i < 18)
+	while (i < 17)
 	{
 		if (strcmp(s, (stk[i]).opcode) == 0)
 		{
