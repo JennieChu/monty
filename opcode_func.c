@@ -17,7 +17,8 @@ void stk_push(stack_t **stack, unsigned int ln)
 	if (result < 0)
 	{
 		printf("L%d: usage: push integer\n", ln);
-		exit(EXIT_FAILURE);
+		value[2] = 1;
+		return;
 	}
 }
 
@@ -53,7 +54,8 @@ void stk_pop(stack_t **stack, unsigned int ln)
 	if (result != 1)
 	{
 		printf("L%d: can't pop an empty stack\n", ln);
-		exit(EXIT_FAILURE);
+		value[2] = 1;
+		return;
 	}
 }
 
@@ -71,7 +73,8 @@ void stk_add(stack_t **stack, unsigned int ln)
 	if ((*stack) == NULL || (*stack)->next == NULL)
 	{
 		printf("L%d: can't add, stack too short\n", ln);
-		exit(EXIT_FAILURE);
+		value[2] = 1;
+		return;
 	}
 	temp = (*stack);
 	temp2 = temp->next;
@@ -98,7 +101,8 @@ void stk_pint(stack_t **stack, unsigned int ln)
 	if (head == NULL)
 	{
 		printf("L%d: can't pint, stack empty\n", ln);
-		exit(EXIT_FAILURE);
+		value[2] = 1;
+		return;
 	}
 
 	printf("%d\n", head->n);

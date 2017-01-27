@@ -42,6 +42,7 @@ void check_argc(int argc);
 void check_valid_file(char *filename);
 void check_file_stream(FILE *fp, char *filename);
 void check_opcode(void (*opcode)(stack_t **stack, unsigned int ln), int lineno);
+void check_fail(char *line, FILE *fp, stack_t *head);
 
 /* stack_funcs.c */
 int add_to_stack(stack_t **head, int n);
@@ -92,5 +93,4 @@ int tokenize_line(char *s, char *tokens[]);
 void clear_strings(char *tokens[]);
 int check_empty(const char *s);
 int check_if_comment(char **token);
-
 #endif
