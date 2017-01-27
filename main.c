@@ -25,7 +25,6 @@ int main(int argc, char *argv[])
 
 	fp = fopen(path, "r");
 	check_file_stream(fp, path);
-
 	for (lineno = 1; (read = getline(&line, &len, fp)) != -1; lineno++)
 	{
 		if (check_empty(line))
