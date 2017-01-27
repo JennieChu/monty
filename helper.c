@@ -36,7 +36,7 @@ int check_if_push(char *tok_line[], int lineno)
 			value[0] = atoi(tok_line[1]);
 		else
 		{
-			printf("L<%d>: usage: push integer\n", lineno);
+			printf("L%d: usage: push integer\n", lineno);
 			value[2] = 1;
 			return (0);
 		}
