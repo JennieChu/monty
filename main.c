@@ -21,7 +21,6 @@ int main(int argc, char *argv[])
 	line = NULL;
 	check_argc(argc);
 	path = argv[1];
-/*	check_valid_file(path);*/
 
 	fp = fopen(path, "r");
 	check_file_stream(fp, path);
@@ -33,14 +32,14 @@ int main(int argc, char *argv[])
 		if (status == 0)
 			continue;
 
-		check_if_push(tok_line, lineno);  /* this */
+		check_if_push(tok_line, lineno);
 		check_fail(line, fp, head);
 		check_data_structure(tok_line[0]);
 		fptr = get_opcode_func(tok_line[0]);
-		check_opcode(fptr, lineno, tok_line[0]); /* this */
+		check_opcode(fptr, lineno, tok_line[0]);
 		check_fail(line, fp, head);
 
-		(*fptr)(&head, lineno);  /* this */
+		(*fptr)(&head, lineno);
 		check_fail(line, fp, head);
 		clear_strings(tok_line);
 	}
