@@ -12,6 +12,8 @@ void stk_rotl(stack_t **stack, unsigned int ln)
 
 	(void) ln;
 	temp = (*stack);
+	if (temp == NULL)
+		return;
 	temp2 = temp;
 	if (temp->next == NULL)
 		;
