@@ -4,7 +4,7 @@
  * add_to_queue - adds the nodes to the end of the queue
  * @head: head of the queue
  * @n: number value for the queue
- * Return: 1 if success and 0 if fail
+ * Return: 1 if success and -1 if fail
  */
 
 int add_to_queue(stack_t **head, int n)
@@ -15,7 +15,7 @@ int add_to_queue(stack_t **head, int n)
 	if (new_node == NULL)
 	{
 		printf("Error: malloc failed\n");
-		return (0);
+		return (-1);
 	}
 	new_node->n = n;
 	new_node->next = NULL;
