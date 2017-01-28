@@ -51,8 +51,8 @@ void check_file_stream(FILE *fp, char *filename)
 /**
  * check_opcode - Check if opcode function pointer is NULL
  * @opcode: opcode function pointer
- * @l: line number
- * @c: command given
+ * @lineno: line number
+ * @cmd: command given
  */
 
 void check_opcode(void (*opcode)(), int lineno, char *cmd)
