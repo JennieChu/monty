@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 	line = NULL;
 	check_argc(argc);
 	path = argv[1];
-	check_valid_file(path);
+/*	check_valid_file(path);*/
 
 	fp = fopen(path, "r");
 	check_file_stream(fp, path);
