@@ -6,9 +6,7 @@ The goal of this project is to create an interpreter for Monty ByteCode files, u
 
 
 
-### Quick Start
-
-------
+## Quick Start
 
 <u>Monty</u>:
 
@@ -30,9 +28,7 @@ Sample BrainFuck files are located at `/brainfuck`
 
 
 
-### Commands Overview
-
-------
+## Commands Overview
 
 The Monty Interpreter will tokenize command inputs, ignoring all whitespaces and comments which start with a `#` sign. When tokenizing, the interpreter only looks at the first 2 inputs per line.
 
@@ -465,9 +461,7 @@ There are 17 valid operation codes:
 
 
 
-### File Descriptions
-
-------
+## File Descriptions
 
 - `monty.h` - Header file which contains library includes, structs created, and all function prototypes.
 - `main.c`  - Main monty file handling the core operations, including reading user input arguments, opening bytecode file, parsing inputs, and calling correct operations.
@@ -481,9 +475,7 @@ There are 17 valid operation codes:
 
 
 
-### Team
-
-------
+## Team
 
 Jennie Chu - [Github](https://github.com/JennieChu) || [Twitter](https://twitter.com/JennieZChu)
 
