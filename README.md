@@ -6,7 +6,7 @@ The goal of this project is to create an interpreter for Monty ByteCode files, u
 
 
 
-#### Quick Start
+### Quick Start
 
 ------
 
@@ -30,7 +30,7 @@ Sample BrainFuck files are located at `/brainfuck`
 
 
 
-#### Commands Overview
+### Commands Overview
 
 ------
 
@@ -465,7 +465,7 @@ There are 17 valid operation codes:
 
 
 
-#### File Descriptions
+### File Descriptions
 
 ------
 
@@ -481,7 +481,7 @@ There are 17 valid operation codes:
 
 
 
-#### Team
+### Team
 
 ------
 
